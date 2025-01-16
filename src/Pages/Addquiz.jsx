@@ -26,26 +26,24 @@ const Addquiz = () => {
 
     const submithandler=(e)=>{
       e.preventDefault();
-      if(e.target.value != undefined){
-        const data={
-          Question:e.target.question.value,
-          Option1:e.target.option1.value,
-          Option2:e.target.option2.value,
-          Option3:e.target.option3.value,
-          Option4:e.target.option4.value,
-          CorrectOption:e.target.selectbox.value
-        }
-
-        const userId=uuidv4();
-        const db = getDatabase();
-        set(ref(db, 'Questions/' + userId), data);
-        e.target.reset();
-        toastify("Quizz Submitted Sucessfully!!",1);
-
-      }else{
+      if(e.target.value == undefined){
         return
       }
      
+      const data={
+        Question:e.target.question.value,
+        Option1:e.target.option1.value,
+        Option2:e.target.option2.value,
+        Option3:e.target.option3.value,
+        Option4:e.target.option4.value,
+        CorrectOption:e.target.selectbox.value
+      }
+     
+     const userId=uuidv4();
+     const db = getDatabase();
+     set(ref(db, 'Questions/' + userId), data);
+     e.target.reset();
+     toastify("Quizz Submitted Sucessfully!!",1)
 
     }
 

@@ -23,7 +23,7 @@ const Result = () => {
             <h1 className="text-3xl font-bold text-gray-800 mb-4">Quiz Results</h1>
     
             <p className="text-lg text-gray-600">You scored:</p>
-            <p className="text-4xl font-extrabold text-blue-500 my-4">{presentselect.length == "" ? "0" : presentselect?.length / Question?.length * 100}%</p>
+            <p className="text-4xl font-extrabold text-blue-500 my-4">{Math.ceil(presentselect.length == "" ? "0" : presentselect?.length / Question?.length * 100)}%</p>
     
             <div className="my-6">
               <h2 className="text-xl font-semibold text-gray-700">Summary</h2>

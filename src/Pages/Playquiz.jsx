@@ -45,7 +45,7 @@ const Playquiz = () => {
         const selector = (correct, pselect) => {
           setselect(correct); // Correct answer
           // console.log(correct);
-          console.log(select);
+         
 
           if(correct == pselect){
             setpresentselect([...presentselect,pselect]);
@@ -62,7 +62,6 @@ const Playquiz = () => {
             <Link to="/home"><div>Home</div></Link>
             <Link to="/addquiz"><div>Add-Quiz</div></Link>
             <Link to="/viewquiz"><div>View-Quiz</div></Link>
-            <Link to="/result"><div>Result</div></Link>
             <Link to="/"><button onClick={Logout}>Logout</button></Link>
         </div>
        
