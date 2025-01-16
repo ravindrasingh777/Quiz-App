@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {Link, useNavigate } from 'react-router-dom';
+import {data, Link, useNavigate } from 'react-router-dom';
 import { Context } from '../Context/Maincontext';
 const Playquiz = () => {
-    const {Question,current,next,prev,quizdata,setright,right,user,Logout}=useContext(Context);
+    const {Question,current,next,prev,quizdata,presentselect,setpresentselect,user,Logout}=useContext(Context);
     const[select,setselect]=useState("");
+    
     const navigate=useNavigate()
 
      useEffect(
@@ -27,11 +28,23 @@ const Playquiz = () => {
             },[next]
         )
 
-
-
-        const selector=(correct)=>{
-            setselect(correct);
+        const submithandler=()=>{
+          navigate("/result");
         }
+
+
+
+        const selector = (correct, pselect) => {
+          setselect(correct); // Correct answer
+          // console.log(correct);
+          console.log(select);
+
+          if(correct == pselect){
+            setpresentselect([...presentselect,pselect]);
+          }
+          // console.log(select);
+
+      };
     
        
 
@@ -56,6 +69,7 @@ const Playquiz = () => {
           <div className="mt-6 flex justify-between">
             <button onClick={prev}  className={`bg-gray-200  ${current == 0 && "hidden"} py-2 px-4 rounded hover:bg-gray-300`}>Previous</button>
             <button onClick={next} className={`bg-blue-500 ${current == Question.length - 1 && "hidden"}  text-white py-2 px-4 rounded hover:bg-blue-600`}>Next</button>
+            <button onClick={submithandler} className={`bg-blue-500 ${current == Question.length - 1 ? "block" : "hidden"}  text-white py-2 px-4 rounded hover:bg-blue-600`}>Submit</button>
           </div>
         </div>
       </div>
@@ -70,22 +84,22 @@ const Box=({quiz,current,select,selector})=>{
         <h2 className="text-lg font-semibold text-gray-700">Question {current + 1}: {quiz?.Question} </h2>
         <ul className="mt-2 space-y-2">
           <li>
-            <button onClick={()=> selector(quiz?.CorrectOption) } className={`w-full  ${select == "option1" ? "!bg-green-500" : "!bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> selector(quiz?.CorrectOption,"option1") } className={`w-full  ${select === "option1" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               A. {quiz?.Option1}
             </button>
           </li>
           <li>
-            <button onClick={()=> selector(quiz?.CorrectOption) } className={`w-full  ${select == "option2" ? "!bg-green-500" : "!bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> selector(quiz?.CorrectOption,"option2") } className={`w-full  ${select === "option2" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               B. {quiz?.Option2}
             </button>
           </li>
           <li>
-            <button onClick={()=> selector(quiz?.CorrectOption) } className={`w-full  ${select == "option3" ? "!bg-green-500" : "!bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> selector(quiz?.CorrectOption,"option3") } className={`w-full  ${select === "option3" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               C. {quiz?.Option3}           
                </button>
           </li>
           <li>
-            <button onClick={()=> selector(quiz?.CorrectOption) } className={`w-full  ${select == "option4" ? "!bg-green-500" : "!bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> selector(quiz?.CorrectOption,"option4") } className={`w-full  ${select === "option4" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               D. {quiz?.Option4}          
              </button>
           </li>
@@ -93,6 +107,9 @@ const Box=({quiz,current,select,selector})=>{
       </div>
     )
 }
+
+
+
 
 
 export default Playquiz;

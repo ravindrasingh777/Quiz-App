@@ -10,6 +10,7 @@ const Maincontext = (props) => {
     const[current,setcurrent]=useState(0);
     const[right,setright]=useState([]);
     const[user,setuser]=useState(null);
+    const[presentselect,setpresentselect]=useState([]);
 
 
     const Logout=()=>{
@@ -66,7 +67,7 @@ const Maincontext = (props) => {
     }
 
     return (
-        <Context.Provider value={{Questionhandler,Question,current,next,prev,quizdata,toastify,setright,right,user,setuser,Logout}}>
+        <Context.Provider value={{Questionhandler,Question,current,next,prev,quizdata,toastify,presentselect,setpresentselect,user,setuser,Logout}}>
             <ToastContainer/>
              {props.children}
         </Context.Provider>

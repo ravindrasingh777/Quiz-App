@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { Context } from '../Context/Maincontext';
 
 const Result = () => {
-    const {Question,Logout}=useContext(Context);
+    const {Question,Logout,presentselect,setpresentselect}=useContext(Context);
+
+    const retaketest=()=>{
+      setpresentselect("");
+    }
 
     return (
       <>
@@ -11,7 +15,7 @@ const Result = () => {
                   <Link to="/home"><div>Home</div></Link>
                   <Link to="/addquiz"><div>Add-Quiz</div></Link>
                   <Link to="/viewquiz"><div>View-Quiz</div></Link>
-                  <Link to="/result"><div>Play-Quiz</div></Link>
+                  <Link to="/playquiz"><div>Play-Quiz</div></Link>
                   <Link to="/"><button onClick={Logout}>Logout</button></Link>
               </div>
         <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 bg-gray-100 md:p-0 p-2 flex md:items-center items-start justify-center">
@@ -19,29 +23,29 @@ const Result = () => {
             <h1 className="text-3xl font-bold text-gray-800 mb-4">Quiz Results</h1>
     
             <p className="text-lg text-gray-600">You scored:</p>
-            <p className="text-4xl font-extrabold text-blue-500 my-4">85%</p>
+            <p className="text-4xl font-extrabold text-blue-500 my-4">{presentselect.length == "" ? "0" : presentselect?.length / Question?.length * 100}%</p>
     
             <div className="my-6">
               <h2 className="text-xl font-semibold text-gray-700">Summary</h2>
               <ul className="mt-4 space-y-2 text-left">
                 <li className="flex justify-between">
                   <span>Correct Answers:</span>
-                  <span className="font-bold">17</span>
+                  <span className="font-bold">{presentselect?.length}</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Wrong Answers:</span>
-                  <span className="font-bold">3</span>
+                  <span className="font-bold">{Question?.length - presentselect?.length}</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Total Questions:</span>
-                  <span className="font-bold">{Question.length}</span>
+                  <span className="font-bold">{Question?.length}</span>
                 </li>
               </ul>
             </div>
     
             <div className="mt-6 flex justify-center space-x-4">
               <Link to="/playquiz">
-              <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+              <button onClick={retaketest} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
                 Retake Quiz
               </button>
               </Link>
