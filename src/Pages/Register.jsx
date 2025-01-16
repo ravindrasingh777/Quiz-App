@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../Context/Maincontext";
-import { toast } from "react-toastify";
 import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 const Register = () => {
   const { user, setuser,toastify } = useContext(Context);

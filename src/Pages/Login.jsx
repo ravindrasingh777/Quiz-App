@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../Context/Maincontext';
 import { useContext } from 'react';
-import { toast } from 'react-toastify';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
