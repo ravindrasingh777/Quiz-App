@@ -67,7 +67,7 @@ const Maincontext = (props) => {
     }
 
     return (
-        <Context.Provider value={{Questionhandler,Question,current,next,prev,quizdata,toastify,presentselect,setpresentselect,user,setuser,Logout}}>
+        <Context.Provider value={{Questionhandler,Question,current,next,prev,quizdata,toastify,toast,presentselect,setpresentselect,user,setuser,Logout}}>
             <ToastContainer/>
              {props.children}
         </Context.Provider>

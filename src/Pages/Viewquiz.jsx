@@ -33,7 +33,7 @@ const Viewquiz = () => {
         <div className="md:w-[1100px] w-[400px] md:mt-0 mt-3 bg-white rounded-lg shadow-md md:p-6 p-0">
           <h2 className="md:text-3xl text-xl font-bold text-gray-800 mb-6 text-center">Quiz List</h2>
   
-          <table className="table-auto md:text-xl text-[10px] w-full border-collapse border border-gray-300">
+          <table className="table-auto md:text-[18px] text-[10px] w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-200">
                 <th className="border md:block hidden border-gray-300 px-4 py-2 text-left text-gray-700 font-medium">S.No</th>
@@ -51,7 +51,7 @@ const Viewquiz = () => {
                 Question?.map(
                     (item,index)=>{
                         return(
-                            <tr key={index} className="hover:bg-gray-100 w-full">
+                            <tr key={index} className="hover:bg-gray-100 w-full ">
                             <td className="border md:block hidden border-gray-300 px-4 py-2 text-gray-600">{index + 1}</td>
                             <td className="border text-red-500 border-gray-300 px-4 py-2">{item.Question}</td>
                             <td className={`border ${'option1' == item.CorrectOption && "text-green-500"} border-gray-300 px-4 py-2 text-gray-600`}>{item.Option1}</td>
