@@ -26,10 +26,7 @@ const Addquiz = () => {
 
     const submithandler=(e)=>{
       e.preventDefault();
-      if(e.target.value == undefined){
-        return
-      }
-     
+    
       const data={
         Question:e.target.question.value,
         Option1:e.target.option1.value,
@@ -38,6 +35,11 @@ const Addquiz = () => {
         Option4:e.target.option4.value,
         CorrectOption:e.target.selectbox.value
       }
+
+      if(data.Question == "" || data.Option1 == "" || data.Option2 == "" || data.Option3 == "" || data.Option4 == "" || data.CorrectOption == ""){
+        return;
+      }
+
      
      const userId=uuidv4();
      const db = getDatabase();

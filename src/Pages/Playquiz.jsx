@@ -84,6 +84,7 @@ const Playquiz = () => {
     );
 }
 
+// `${quiz?.CorrectOption == "option2" ? 1 : 0}`
 
 const Box=({quiz,current,select,selector,toastify})=>{
     return(
@@ -91,22 +92,22 @@ const Box=({quiz,current,select,selector,toastify})=>{
         <h2 className="text-lg font-semibold text-gray-700">Question {current + 1}: {quiz?.Question} </h2>
         <ul className="mt-2 space-y-2">
           <li>
-            <button onClick={()=> {selector(quiz?.CorrectOption,"option1"),toastify(`${quiz?.CorrectOption == "option1" ? "You Select Correct Option1"  : "You Select Wrong Option1"}`,`${quiz?.CorrectOption == "option1" ? 1 : 0}`)} } className={`w-full  ${select === "option1" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> {selector(quiz?.CorrectOption,"option1"),toastify(`${quiz?.CorrectOption == "option1" ? "You Select Correct Option1"  : "You Select Wrong Option1"}`,quiz.CorrectOption== "option1" ? 1 : 0)} } className={`w-full  ${select === "option1" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               A. {quiz?.Option1}
             </button>
           </li>
           <li>
-            <button onClick={()=> {selector(quiz?.CorrectOption,"option2"),toastify(`${quiz?.CorrectOption == "option2" ? "You Select Correct Option2"  : "You Select Wrong Option2"}`,`${quiz?.CorrectOption == "option2" ? 1 : 0}`)} } className={`w-full  ${select === "option2" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> {selector(quiz?.CorrectOption,"option2"),toastify(`${quiz?.CorrectOption == "option2" ? "You Select Correct Option2"  : "You Select Wrong Option2"}`,quiz.CorrectOption== "option2" ? 1 : 0)} } className={`w-full  ${select === "option2" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               B. {quiz?.Option2}
             </button>
           </li>
           <li>
-            <button onClick={()=> {selector(quiz?.CorrectOption,"option3"),toastify(`${quiz?.CorrectOption == "option3" ? "You Select Correct Option3"  : "You Select Wrong Option3"}`,`${quiz?.CorrectOption == "option3" ? 1 : 0}`)} } className={`w-full  ${select === "option3" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> {selector(quiz?.CorrectOption,"option3"),toastify(`${quiz?.CorrectOption == "option3" ? "You Select Correct Option3"  : "You Select Wrong Option3"}`,quiz.CorrectOption== "option3" ? 1 : 0)} } className={`w-full  ${select === "option3" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               C. {quiz?.Option3}           
                </button>
           </li>
           <li>
-            <button onClick={()=> {selector(quiz?.CorrectOption,"option4"),toastify(`${quiz?.CorrectOption == "option4" ? "You Select Correct Option4"  : "You Select Wrong Option4"}`,`${quiz?.CorrectOption == "option4" ? 1 : 0}`)} } className={`w-full  ${select === "option4" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
+            <button onClick={()=> {selector(quiz?.CorrectOption,"option4"),toastify(`${quiz?.CorrectOption == "option4" ? "You Select Correct Option4"  : "You Select Wrong Option4"}`,quiz.CorrectOption== "option4" ? 1 : 0)} } className={`w-full  ${select === "option4" ? "!bg-green-500" : "bg-red-200"} py-2 px-4 text-left border border-gray-300 rounded `}>
               D. {quiz?.Option4}          
              </button>
           </li>
