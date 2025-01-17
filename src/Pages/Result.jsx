@@ -15,7 +15,6 @@ const Result = () => {
                   <Link to="/home"><div>Home</div></Link>
                   <Link to="/addquiz"><div>Add-Quiz</div></Link>
                   <Link to="/viewquiz"><div>View-Quiz</div></Link>
-                  <Link to="/playquiz"><div>Play-Quiz</div></Link>
                   <Link to="/"><button onClick={Logout}>Logout</button></Link>
               </div>
         <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 bg-gray-100 md:p-0 p-2 flex md:items-center items-start justify-center">
