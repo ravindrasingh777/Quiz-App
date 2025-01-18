@@ -4,7 +4,7 @@ import { Context } from '../Context/Maincontext';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 const Playquiz = () => {
-    const {Question,current,next,prev,quizdata,presentselect,setpresentselect,user,Logout,toast}=useContext(Context);
+    const {Question,current,next,prev,quizdata,presentselect,setpresentselect,Logout}=useContext(Context);
     const[select,setselect]=useState("");
     
     const navigate=useNavigate()
@@ -68,9 +68,9 @@ const Playquiz = () => {
         </div>
        
         <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 bg-gray-100 flex md:items-center md:p-0 p-2 items-start justify-center">
-          <ToastContainer/>
         <div className="bg-white rounded-lg shadow-lg p-6  md:mt-0 mt-4 max-w-lg w-full">
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">Play Quiz</h1>
+            {/* <ToastContainer/> */}
   
           <div className="space-y-4">
           <Box quiz={Question[current]} current={current} selector={selector} toastify={toastify}  select={select} />
